@@ -235,7 +235,7 @@ $card-radius-mobile: 24px;
   background: $bg-dark;
   color: #ffffff;
   border-radius: $card-radius;
-  padding: 6.5rem 3rem 4rem 3rem;
+  padding: 5em 3rem 2rem 3rem;
   margin-bottom: 3.5rem;
   position: relative;
   z-index: 1;
@@ -251,7 +251,7 @@ $card-radius-mobile: 24px;
 
   .dark-hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.1fr;
     gap: 2.5rem;
     align-items: center;
 
@@ -308,26 +308,6 @@ $card-radius-mobile: 24px;
         background: $accent-red;
         color: #ffffff;
         border: none;
-      }
-    }
-
-    .laptop-card {
-      background: $accent-red;
-      border-radius: 22px;
-      padding: 0.8rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-
-      .screen {
-        border-radius: 16px;
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          height: auto;
-          max-height: 260px;
-          object-fit: cover;
-          display: block;
-        }
       }
     }
   }
