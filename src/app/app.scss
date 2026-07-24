@@ -13,16 +13,21 @@ $card-radius: 36px;
   }
 }
 
-/* NAVBAR REDONDEADO */
+/* NAVBAR REDONDEADO Y STICKY */
 .navbar {
+  position: sticky;
+  top: 1rem;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: $bg-light;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 50px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   .brand {
     display: flex;
@@ -61,19 +66,48 @@ $card-radius: 36px;
     }
   }
 
-  .btn-bold-nav {
-    background: #0f172a;
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.8rem;
-    border-radius: 40px;
-    font-weight: 800;
-    font-size: 0.88rem;
-    text-decoration: none;
-    transition: transform 0.2s;
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
 
-    &:hover {
-      transform: scale(1.03);
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f1f5f9;
+      color: #0f172a;
+      transition: all 0.2s ease;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        background: #0f172a;
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+    }
+
+    .btn-bold-nav {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
 }
@@ -164,7 +198,6 @@ $card-radius: 36px;
       }
     }
   }
-
 }
 
 /* SECCIÓN NEGRA HERO */
@@ -245,7 +278,7 @@ $card-radius: 36px;
 
         img {
           width: 100%;
-          height: 200xp;
+          height: 200px;
           object-fit: cover;
           display: block;
         }
@@ -463,7 +496,6 @@ $card-radius: 36px;
       transition: color 0.25s ease;
     }
 
-    /* Excepción para AWS para mantener su imagen impecable */
     &[data-tech="AWS"] {
       .tech-icon img {
         filter: none !important;
@@ -486,7 +518,102 @@ $card-radius: 36px;
   }
 }
 
-/* Animación a la izquierda */
+/* FOOTER ROJO DE ANCHO COMPLETO */
+.footer-full-red {
+  width: 100%;
+  background: $accent-red;
+  color: #ffffff;
+  padding: 3.5rem 0 1.5rem 0;
+  margin-top: 4rem;
+
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+    .footer-brand {
+      h3 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      p {
+        margin: 0.3rem 0 0 0;
+        opacity: 0.9;
+        font-size: 0.95rem;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: opacity 0.2s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .footer-social {
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        padding: 0.75rem 1.4rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        &:hover {
+          background: #ffffff;
+          color: $accent-red;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    padding-top: 1.8rem;
+    text-align: center;
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+  }
+}
+
+/* Keyframes de scroll infinito */
 @keyframes infiniteScroll {
   0% {
     transform: translateX(0);
@@ -496,7 +623,6 @@ $card-radius: 36px;
   }
 }
 
-/* Animación a la derecha */
 @keyframes infiniteScrollReverse {
   0% {
     transform: translateX(-50%);
