@@ -60,7 +60,7 @@
       <div class="laptop-card">
         <div class="screen">
           <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-            alt="Laptop Code Preview" />
+            alt="Laptop Code Preview" loading="lazy" />
         </div>
       </div>
     </div>
@@ -75,8 +75,8 @@
       </h3>
 
       <div class="carousel-controls">
-        <button class="btn-arrow" (click)="scrollExp(-380)">‹</button>
-        <button class="btn-arrow" (click)="scrollExp(380)">›</button>
+        <button class="btn-arrow" (click)="scrollExp(-320)" aria-label="Anterior">‹</button>
+        <button class="btn-arrow" (click)="scrollExp(320)" aria-label="Siguiente">›</button>
       </div>
     </div>
 
@@ -115,7 +115,7 @@
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup1" [attr.data-tech]="tech.name">
           <div class="tech-icon">
-            <img [src]="tech.icon" [alt]="tech.name" />
+            <img [src]="tech.icon" [alt]="tech.name" loading="lazy" />
           </div>
           <span class="tech-name">{{ tech.name }}</span>
         </div>
@@ -123,7 +123,7 @@
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup1" [attr.data-tech]="tech.name">
           <div class="tech-icon">
-            <img [src]="tech.icon" [alt]="tech.name" />
+            <img [src]="tech.icon" [alt]="tech.name" loading="lazy" />
           </div>
           <span class="tech-name">{{ tech.name }}</span>
         </div>
@@ -135,7 +135,7 @@
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup2" [attr.data-tech]="tech.name">
           <div class="tech-icon">
-            <img [src]="tech.icon" [alt]="tech.name" />
+            <img [src]="tech.icon" [alt]="tech.name" loading="lazy" />
           </div>
           <span class="tech-name">{{ tech.name }}</span>
         </div>
@@ -143,7 +143,7 @@
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup2" [attr.data-tech]="tech.name">
           <div class="tech-icon">
-            <img [src]="tech.icon" [alt]="tech.name" />
+            <img [src]="tech.icon" [alt]="tech.name" loading="lazy" />
           </div>
           <span class="tech-name">{{ tech.name }}</span>
         </div>
@@ -152,7 +152,7 @@
   </section>
 </div>
 
-<!-- FOOTER ROJO DE ANCHO COMPLETO (Fuera del contenedor limitado) -->
+<!-- FOOTER ROJO DE ANCHO COMPLETO -->
 <footer class="footer-full-red" [@fadeIn]>
   <div class="footer-container">
     <div class="footer-content">
