@@ -1,7 +1,7 @@
-<!-- Contenedor principal con ancho limitado para el contenido del portafolio -->
-<div class="tablet-portfolio" [@fadeIn]>
-  <!-- Navbar Redondeado Superior (Sticky) -->
-  <nav class="navbar" [@slideDown]>
+<!-- Contenedor Principal -->
+<div class="tablet-portfolio">
+  <!-- Navbar Redondeado (Sticky) -->
+  <nav class="navbar">
     <div class="brand">
       <span class="dot-red"></span>
       BJ
@@ -25,8 +25,8 @@
     </div>
   </nav>
 
-  <!-- Hero Principal -->
-  <header class="hero-card" id="about" [@slideUp]>
+  <!-- Hero Principal (Entra desde la IZQUIERDA) -->
+  <header class="hero-card" id="about" @slideFromLeft>
     <div>
       <p class="hero-tag">{{ perfil.titulo | uppercase }}</p>
       <h1 class="hero-title">Boris Enrique Bonett Jaramillo.</h1>
@@ -41,8 +41,8 @@
     </div>
   </header>
 
-  <!-- Sección Oscura Hero -->
-  <section class="dark-section">
+  <!-- Sección Oscura Opcional -->
+  <section class="dark-section" @slideFromLeft>
     <div class="dark-hero-grid">
       <div>
         <h2 class="dark-title">Implementaciones Robustas & Escalables.</h2>
@@ -59,8 +59,8 @@
     </div>
   </section>
 
-  <!-- SECCIÓN EXPERIENCIA -->
-  <section class="experience-carousel-block" id="experiencia" [@fadeIn]>
+  <!-- SECCIÓN EXPERIENCIA (Entra desde la DERECHA) -->
+  <section class="experience-carousel-block" id="experiencia" @slideFromRight>
     <div class="section-header-clean">
       <h3 class="section-label-dark">
         <span class="red-indicator"></span>
@@ -94,8 +94,8 @@
     </div>
   </section>
 
-  <!-- SECCIÓN TECH STACK -->
-  <section class="tech-carousel-block" id="tech-stack" [@fadeIn]>
+  <!-- SECCIÓN TECH STACK (Entra desde la IZQUIERDA) -->
+  <section class="tech-carousel-block" id="tech-stack" @slideFromLeft>
     <div class="section-header-clean">
       <h3 class="section-label-dark">
         <span class="red-indicator"></span>
@@ -103,7 +103,7 @@
       </h3>
     </div>
 
-    <!-- Fila 1: Se desplaza hacia la Izquierda -->
+    <!-- Fila 1 -->
     <div class="tech-infinite-wrapper">
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup1" [attr.data-tech]="tech.name">
@@ -123,7 +123,7 @@
       </div>
     </div>
 
-    <!-- Fila 2: Se desplaza hacia la Derecha (.reverse) -->
+    <!-- Fila 2 -->
     <div class="tech-infinite-wrapper reverse">
       <div class="tech-group">
         <div class="tech-card" *ngFor="let tech of techGroup2" [attr.data-tech]="tech.name">
@@ -145,8 +145,8 @@
   </section>
 </div>
 
-<!-- FOOTER ROJO DE ANCHO COMPLETO -->
-<footer class="footer-full-red" [@fadeIn]>
+<!-- FOOTER ROJO SÓLIDO (Fuera del contenedor para ocupar todo el ancho) -->
+<footer class="footer-full-red">
   <div class="footer-container">
     <div class="footer-content">
       <div class="footer-brand">
@@ -176,3 +176,8 @@
     </div>
   </div>
 </footer>
+
+<!-- BOTÓN VOLVER ARRIBA -->
+<button class="btn-back-to-top" [class.visible]="showScrollTop" (click)="scrollToTop()" aria-label="Volver arriba">
+  ↑
+</button>

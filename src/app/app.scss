@@ -4,7 +4,17 @@ $bg-dark: #0a0a0c;
 $card-radius: 36px;
 $card-radius-mobile: 24px;
 
-/* Box Sizing global para evitar overflow por padding */
+html {
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -14,14 +24,12 @@ $card-radius-mobile: 24px;
   margin: 0 auto;
   padding: 1.5rem;
   width: 100%;
-  overflow-x: hidden;
 
   @media (max-width: 768px) {
     padding: 0.8rem;
   }
 }
 
-/* NAVBAR REDONDEADO Y STICKY */
 .navbar {
   position: sticky;
   top: 1rem;
@@ -30,12 +38,12 @@ $card-radius-mobile: 24px;
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1.5rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 50px;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 
   @media (max-width: 576px) {
     padding: 0.6rem 1rem;
@@ -64,7 +72,7 @@ $card-radius-mobile: 24px;
     gap: 2.2rem;
 
     @media (max-width: 768px) {
-      display: none; // Ocultar links en pantallas pequeñas para evitar saturation
+      display: none;
     }
 
     a {
@@ -132,7 +140,6 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* HERO SUPERIOR */
 .hero-card {
   background: $bg-light;
   border-radius: $card-radius;
@@ -230,12 +237,11 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* SECCIÓN NEGRA HERO */
 .dark-section {
   background: $bg-dark;
   color: #ffffff;
   border-radius: $card-radius;
-  padding: 5em 3rem 2rem 3rem;
+  padding: 5rem 3rem 2.5rem 3rem;
   margin-bottom: 3.5rem;
   position: relative;
   z-index: 1;
@@ -251,14 +257,9 @@ $card-radius-mobile: 24px;
 
   .dark-hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr;
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     align-items: center;
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
 
     .dark-title {
       font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -272,7 +273,7 @@ $card-radius-mobile: 24px;
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 2rem;
-      max-width: 480px;
+      max-width: 520px;
 
       @media (max-width: 576px) {
         font-size: 0.88rem;
@@ -313,12 +314,11 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* ENCABEZADOS DE SECCIÓN LIMPIOS */
 .section-header-clean {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding: 0 0.5rem;
   gap: 1rem;
 
@@ -333,7 +333,7 @@ $card-radius-mobile: 24px;
     .red-indicator {
       width: 6px;
       height: 24px;
-      background: $accent-red;
+      background: $bg-dark;
       border-radius: 4px;
       flex-shrink: 0;
     }
@@ -374,7 +374,6 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* SECCIÓN EXPERIENCIA */
 .experience-carousel-block {
   margin-bottom: 4rem;
 
@@ -397,7 +396,6 @@ $card-radius-mobile: 24px;
       color: #0f172a;
       border-radius: 28px;
       padding: 2rem;
-      border: none;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
       transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
 
@@ -445,13 +443,14 @@ $card-radius-mobile: 24px;
           font-size: 1.1rem;
           font-weight: 800;
           line-height: 1.2;
+          margin: 0;
         }
       }
 
       .company-sub {
         font-size: 0.85rem;
         font-weight: 800;
-        color: $accent-red;
+        color: $bg-dark;
         margin-bottom: 0.8rem;
       }
 
@@ -475,9 +474,8 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* TECH STACK: CARROUSEL INFINITO */
 .tech-carousel-block {
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -510,7 +508,6 @@ $card-radius-mobile: 24px;
   .tech-card {
     flex: 0 0 180px;
     background: #ffffff;
-    border: none;
     border-radius: 22px;
     padding: 0.9rem 1.1rem;
     display: flex;
@@ -518,6 +515,7 @@ $card-radius-mobile: 24px;
     gap: 0.8rem;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     @media (max-width: 480px) {
       flex: 0 0 150px;
@@ -536,27 +534,25 @@ $card-radius-mobile: 24px;
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: grayscale(40%);
-        transition: filter 0.25s ease, transform 0.25s ease;
+        filter: grayscale(100%) opacity(0.5);
+        transition: filter 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
       }
     }
 
     .tech-name {
       font-weight: 800;
       font-size: 0.88rem;
-      color: #334155;
+      color: #94a3b8;
       white-space: nowrap;
-    }
-
-    &[data-tech="AWS"] {
-      .tech-icon img {
-        filter: none !important;
-      }
+      transition: color 0.3s ease;
     }
 
     &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+
       .tech-icon img {
-        filter: grayscale(0%);
+        filter: grayscale(0%) opacity(1) !important;
         transform: scale(1.1);
       }
 
@@ -567,13 +563,15 @@ $card-radius-mobile: 24px;
   }
 }
 
-/* FOOTER ROJO DE ANCHO COMPLETO */
 .footer-full-red {
   width: 100%;
-  background: $accent-red;
+  background: $accent-red !important;
+  opacity: 1 !important;
   color: #ffffff;
   padding: 3.5rem 0 1.5rem 0;
-  margin-top: 4rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
 
   .footer-container {
     max-width: 1280px;
@@ -588,7 +586,7 @@ $card-radius-mobile: 24px;
     flex-wrap: wrap;
     gap: 2rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -604,7 +602,7 @@ $card-radius-mobile: 24px;
 
       p {
         margin: 0.3rem 0 0 0;
-        opacity: 0.9;
+        opacity: 0.95;
         font-size: 0.95rem;
       }
     }
@@ -619,7 +617,6 @@ $card-radius-mobile: 24px;
         text-decoration: none;
         font-weight: 700;
         font-size: 0.95rem;
-        word-break: break-word;
 
         &:hover {
           opacity: 0.8;
@@ -632,7 +629,7 @@ $card-radius-mobile: 24px;
         display: inline-flex;
         align-items: center;
         gap: 0.6rem;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.2);
         color: #ffffff;
         padding: 0.75rem 1.4rem;
         border-radius: 40px;
@@ -661,12 +658,51 @@ $card-radius-mobile: 24px;
     p {
       margin: 0;
       font-size: 0.85rem;
-      opacity: 0.85;
+      opacity: 0.9;
     }
   }
 }
 
-/* Keyframes de scroll infinito */
+.btn-back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    background: $accent-red;
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 576px) {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+}
+
 @keyframes infiniteScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

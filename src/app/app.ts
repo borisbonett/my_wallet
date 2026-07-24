@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, style, animate, transition } from '@angular/animations';
+import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -9,28 +9,24 @@ import { trigger, style, animate, transition } from '@angular/animations';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   animations: [
-    trigger('fadeIn', [
+    trigger('slideFromLeft', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('600ms ease-out', style({ opacity: 1 }))
+        style({ opacity: 0, transform: 'translateX(-60px)' }),
+        animate('700ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateX(0)' }))
       ])
     ]),
-    trigger('slideUp', [
+    trigger('slideFromRight', [
       transition(':enter', [
-        style({ transform: 'translateY(25px)', opacity: 0 }),
-        animate('700ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-      ])
-    ]),
-    trigger('slideDown', [
-      transition(':enter', [
-        style({ transform: 'translateY(-15px)', opacity: 0 }),
-        animate('500ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
+        style({ opacity: 0, transform: 'translateX(60px)' }),
+        animate('700ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateX(0)' }))
       ])
     ])
   ]
 })
 export class AppComponent {
   @ViewChild('expTrack') expTrack!: ElementRef<HTMLDivElement>;
+
+  showScrollTop = false;
 
   perfil = {
     nombre: 'Boris Enrique Bonett',
@@ -72,7 +68,7 @@ export class AppComponent {
     {
       cargo: 'Desarrollador Front-end',
       empresa: 'ELOPSITE',
-      logo: 'assets/sena.png', // O la imagen que corresponda si tienes una para Elopsite
+      logo: 'assets/sena.png',
       periodo: 'JUN 2020 - DIC 2020',
       descripcion: 'Diseño e implementación de interfaces web adaptativas.',
       implementaciones: [
@@ -98,13 +94,11 @@ export class AppComponent {
     { name: 'AWS', icon: 'assets/aws.png' }
   ];
 
-  // Primera mitad de las tecnologías (Fila superior - izquierda)
   get techGroup1() {
     const half = Math.ceil(this.techStack.length / 2);
     return this.techStack.slice(0, half);
   }
 
-  // Segunda mitad de las tecnologías (Fila inferior - derecha)
   get techGroup2() {
     const half = Math.ceil(this.techStack.length / 2);
     return this.techStack.slice(half);
@@ -114,5 +108,14 @@ export class AppComponent {
     if (this.expTrack) {
       this.expTrack.nativeElement.scrollBy({ left: offset, behavior: 'smooth' });
     }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.showScrollTop = window.scrollY > 300;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
