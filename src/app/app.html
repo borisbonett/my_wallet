@@ -4,7 +4,7 @@
   <nav class="navbar" [@slideDown]>
     <div class="brand">
       <span class="dot-red"></span>
-      Boris Bonett
+      BJ
     </div>
 
     <div class="nav-menu">
@@ -83,7 +83,10 @@
     <div class="experience-carousel-track" #expTrack>
       <div class="exp-card" *ngFor="let exp of experiencia">
         <div class="card-header">
-          <div class="icon-circle">⚡</div>
+          <div class="icon-circle">
+            <img [src]="exp.logo" [alt]="exp.empresa" *ngIf="exp.logo" />
+            <span *ngIf="!exp.logo">⚡</span>
+          </div>
           <h4>{{ exp.cargo }}</h4>
         </div>
         <div class="company-sub">{{ exp.empresa }} ({{ exp.periodo }})</div>
@@ -91,7 +94,7 @@
 
         <ul class="impl-list">
           <li *ngFor="let imp of exp.implementaciones">
-            • {{ imp }}
+            {{ imp }}
           </li>
         </ul>
       </div>

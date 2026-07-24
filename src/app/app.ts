@@ -47,6 +47,7 @@ export class AppComponent {
     {
       cargo: 'Desarrollador Front-end',
       empresa: 'THE BIZ NATION',
+      logo: 'assets/the_biz_nation_logo.jpeg',
       periodo: 'DIC 2022 - FEB 2026',
       descripcion: 'Desarrollo de soluciones empresariales con impacto social y analítico.',
       implementaciones: [
@@ -59,6 +60,7 @@ export class AppComponent {
     {
       cargo: 'Desarrollador Full-Stack',
       empresa: 'HYPERSOFT',
+      logo: 'assets/hypersoft.jpeg',
       periodo: 'JUL 2021 - DIC 2022',
       descripcion: 'Soluciones orientadas al sector salud y administración documental.',
       implementaciones: [
@@ -70,6 +72,7 @@ export class AppComponent {
     {
       cargo: 'Desarrollador Front-end',
       empresa: 'ELOPSITE',
+      logo: 'assets/sena.png', // O la imagen que corresponda si tienes una para Elopsite
       periodo: 'JUN 2020 - DIC 2020',
       descripcion: 'Diseño e implementación de interfaces web adaptativas.',
       implementaciones: [
