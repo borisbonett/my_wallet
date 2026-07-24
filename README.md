@@ -57,3 +57,10 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Cada vez que hagas un cambio en tu código y quieras subir una nueva versión a GitHub Pages, solo debes correr estos 2 comandos en tu terminal:
+
+```bash
+ng build --base-href "https://borisbonett.github.io/my_wallet/"
+npx angular-cli-ghpages --dir=dist/my_wallet/browser
+```
