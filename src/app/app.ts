@@ -1,32 +1,18 @@
-import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, ElementRef, ViewChild, HostListener, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
-  animations: [
-    trigger('slideFromLeft', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(-60px)' }),
-        animate('700ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateX(0)' }))
-      ])
-    ]),
-    trigger('slideFromRight', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(60px)' }),
-        animate('700ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateX(0)' }))
-      ])
-    ])
-  ]
+  styleUrl: './app.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnDestroy {
   @ViewChild('expTrack') expTrack!: ElementRef<HTMLDivElement>;
 
   showScrollTop = false;
+  private observer!: IntersectionObserver;
 
   perfil = {
     nombre: 'Boris Enrique Bonett',
@@ -102,6 +88,31 @@ export class AppComponent {
   get techGroup2() {
     const half = Math.ceil(this.techStack.length / 2);
     return this.techStack.slice(half);
+  }
+
+  ngAfterViewInit(): void {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, options);
+
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach(section => this.observer.observe(section));
+  }
+
+  ngOnDestroy(): void {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   scrollExp(offset: number): void {

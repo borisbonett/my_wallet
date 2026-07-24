@@ -25,8 +25,8 @@
     </div>
   </nav>
 
-  <!-- Hero Principal (Entra desde la IZQUIERDA) -->
-  <header class="hero-card" id="about" @slideFromLeft>
+  <!-- Hero Principal (Entra desde la IZQUIERDA al hacer scroll) -->
+  <header class="hero-card animate-on-scroll slide-left" id="about">
     <div>
       <p class="hero-tag">{{ perfil.titulo | uppercase }}</p>
       <h1 class="hero-title">Boris Enrique Bonett Jaramillo.</h1>
@@ -42,7 +42,7 @@
   </header>
 
   <!-- Sección Oscura Opcional -->
-  <section class="dark-section" @slideFromLeft>
+  <section class="dark-section animate-on-scroll slide-left">
     <div class="dark-hero-grid">
       <div>
         <h2 class="dark-title">Implementaciones Robustas & Escalables.</h2>
@@ -59,8 +59,8 @@
     </div>
   </section>
 
-  <!-- SECCIÓN EXPERIENCIA (Entra desde la DERECHA) -->
-  <section class="experience-carousel-block" id="experiencia" @slideFromRight>
+  <!-- SECCIÓN EXPERIENCIA (Entra desde la DERECHA al hacer scroll) -->
+  <section class="experience-carousel-block animate-on-scroll slide-right" id="experiencia">
     <div class="section-header-clean">
       <h3 class="section-label-dark">
         <span class="red-indicator"></span>
@@ -94,8 +94,8 @@
     </div>
   </section>
 
-  <!-- SECCIÓN TECH STACK (Entra desde la IZQUIERDA) -->
-  <section class="tech-carousel-block" id="tech-stack" @slideFromLeft>
+  <!-- SECCIÓN TECH STACK (Entra desde la IZQUIERDA al hacer scroll) -->
+  <section class="tech-carousel-block animate-on-scroll slide-left" id="tech-stack">
     <div class="section-header-clean">
       <h3 class="section-label-dark">
         <span class="red-indicator"></span>
@@ -145,7 +145,7 @@
   </section>
 </div>
 
-<!-- FOOTER ROJO SÓLIDO (Fuera del contenedor para ocupar todo el ancho) -->
+<!-- FOOTER ROJO SÓLIDO -->
 <footer class="footer-full-red">
   <div class="footer-container">
     <div class="footer-content">
